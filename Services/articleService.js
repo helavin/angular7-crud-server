@@ -15,8 +15,9 @@ let createArticle = (data, callback) => {
     async.auto({
         article: (cb) => {
             var dataToSet = {
-                "category": data.category ? data.category : '',
+                "id": data.id,
                 "title": data.title,
+                "category": data.category ? data.category : '',
             }
             console.log(dataToSet);
             articleDAO.createArticle(dataToSet, (err, dbData) => {
@@ -47,8 +48,9 @@ let updateArticle = (data, callback) => {
                 id: data.id,
             }
             var dataToSet = {
-                "category": data.category,
+                "id": data.id,
                 "title": data.title,
+                "category": data.category,
             }
             console.log(criteria, 'test', dataToSet);
             articleDAO.updateArticle(criteria, dataToSet, (err, dbData) => {
